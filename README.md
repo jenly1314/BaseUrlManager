@@ -10,6 +10,8 @@
 
 BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环境需要打包APK的场景，通过BaseUrlManager提供的BaseUrl动态设置入口，只需打一次包，即可轻松随意的切换不同的开发环境或测试环境。在打生产环境包时，关闭BaseUrl动态设置入口即可。
 
+> 妈妈再也不用担心因环境不同需要打多个包的问题，要写一堆配置的烦恼
+
 ## Gif 展示
 ![Image](GIF.gif)
 
