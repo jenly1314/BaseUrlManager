@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingTop="10dp"
+              android:paddingBottom="10dp"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:background="?android:attr/selectableItemBackground">
+    <ImageView
+        android:id="@+id/ivSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:src="@drawable/base_url_item_select_selector"
+        android:layout_marginLeft="6dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+    <TextView
+        android:id="@+id/tvUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/base_url_item_url_color"
+        android:textSize="@dimen/base_url_item_url"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/ivSelect"
+        android:singleLine="true"
+        tools:text="http://192.168.100.100:8888/"/>
+</RelativeLayout>

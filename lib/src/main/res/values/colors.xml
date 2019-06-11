@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="base_url_color_primary">#0086aa</color>
+    <color name="base_url_color_primaryDark">#0076aa</color>
+    <color name="base_url_color_accent">#0086aa</color>
+
+    <color name="base_url_toolbar_bg_color">#0086aa</color>
+    <color name="base_url_toolbar_title_color">#ffffff</color>
+
+    <color name="base_url_bg_color">#ffffff</color>
+
+    <color name="base_url_edit_url_text_color">#333333</color>
+    <color name="base_url_btn_add_text_color">#ffffff</color>
+
+    <color name="base_url_btn_bg_normal_color">#1296db</color>
+    <color name="base_url_btn_bg_pressed_color">#1286db</color>
+
+    <color name="base_url_item_url_color">#333333</color>
+
+</resources>

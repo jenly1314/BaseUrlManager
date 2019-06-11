@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/base_url_toolbar_height"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp">
+    <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/base_url_toolbar_height"
+          android:gravity="center"
+          android:background="@color/base_url_toolbar_bg_color">
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:src="@drawable/base_url_toolbar_btn_back_selector"
+            android:clickable="true"
+            android:onClick="onClick"/>
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:textColor="@color/base_url_toolbar_title_color"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/base_url_title"/>
+        <ImageView
+            android:id="@+id/ivSave"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:src="@drawable/base_url_toolbar_btn_save_selector"
+            android:clickable="true"
+            android:onClick="onClick"/>
+    </LinearLayout>
+</android.support.v7.widget.Toolbar>
