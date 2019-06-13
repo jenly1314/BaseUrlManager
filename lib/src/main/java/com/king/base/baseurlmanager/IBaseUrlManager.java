@@ -6,6 +6,7 @@ import com.king.base.baseurlmanager.bean.UrlInfo;
 
 import java.util.Collection;
 import java.util.List;
+import java.lang.String;
 
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
@@ -14,13 +15,13 @@ public interface IBaseUrlManager {
 
     /**
      * 获取BaseUrl
-     * @return
+     * @return {@link String}
      */
     String getBaseUrl();
 
     /**
      * 获取UrlInfo
-     * @return
+     * @return {@link UrlInfo}
      */
     UrlInfo getUrlInfo();
 
@@ -56,13 +57,13 @@ public interface IBaseUrlManager {
 
     /**
      * 获取UrlInfo集合
-     * @return
+     * @return {@link List<UrlInfo>}
      */
     List<UrlInfo> getUrlInfos();
 
     /**
      * 获取url数
-     * @return
+     * @return {@link int}
      */
     int getCount();
 
