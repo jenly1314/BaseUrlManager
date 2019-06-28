@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply from: 'bintray.gradle'
 
 android {
+
     compileSdkVersion build_versions.compileSdk
     buildToolsVersion build_versions.buildTools
 
@@ -10,10 +11,10 @@ android {
         targetSdkVersion build_versions.targetSdk
         versionCode app_version.versionCode
         versionName app_version.versionName
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -25,23 +26,15 @@ android {
         abortOnError false
         warning 'InvalidPackage'
     }
-}
 
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation deps.test.junit
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.espresso
-
-    api (deps.support.appcompat){
-        exclude module: 'support-annotations'
-    }
-
-    compileOnly deps.support.recyclerview
+    //support
+    compileOnly deps.support.appcompat
 
 }
