@@ -1,8 +1,5 @@
 package com.king.base.baseurlmanager.adapter;
 
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +12,10 @@ import com.king.base.baseurlmanager.bean.UrlInfo;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>

@@ -28,6 +28,10 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 ```
 ### Gradle:
 ```gradle
+//AndroidX 版本
+implementation 'com.king.base:base-url-manager:1.0.0-androidx'
+
+//Android 版本 
 implementation 'com.king.base:base-url-manager:1.0.0'
 ```
 
@@ -49,6 +53,11 @@ allprojects {
 
 ## 引入的库：
 ```gradle
+//AndroidX
+api 'androidx.appcompat:appcompat:1.0.0+'
+compileOnly 'androidx.recyclerview:recyclerview:1.0.0+'
+
+//Android
 api 'com.android.support:appcompat-v7:28.0.0'
 compileOnly 'com.android.support:recyclerview-v7:28.0.0'
 ```
@@ -108,7 +117,7 @@ Step.4 当配置改变了baseUrl时，只需通过BaseUrlManager刷新下数据�
 
 ## 版本记录
 
-#### v1.0.0：2019-6-11
+#### v1.0.0：2019-6-11   [支持AndroidX版本](https://github.com/jenly1314/BaseUrlManager/tree/androidx)
 *  BaseUrlManager初始版本
 
 ## 赞赏

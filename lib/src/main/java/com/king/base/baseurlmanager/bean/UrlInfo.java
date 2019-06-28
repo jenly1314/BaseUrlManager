@@ -2,8 +2,9 @@ package com.king.base.baseurlmanager.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>

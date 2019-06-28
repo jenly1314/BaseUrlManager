@@ -2,7 +2,6 @@ package com.king.base.baseurlmanager.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.king.base.baseurlmanager.bean.UrlInfo;
@@ -12,6 +11,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
@@ -32,7 +33,7 @@ public final class BaseUrlUtil {
      * @param key
      * @param value
      */
-    public static void put(@NonNull Context context,@NonNull String key, Long value){
+    public static void put(@NonNull Context context, @NonNull String key, Long value){
         getSharedPreferences(context).edit()
                 .putLong(key,value)
                 .commit();

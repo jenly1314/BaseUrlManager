@@ -1,12 +1,13 @@
 package com.king.base.baseurlmanager;
 
-import android.support.annotation.NonNull;
 
 import com.king.base.baseurlmanager.bean.UrlInfo;
 
 import java.util.Collection;
 import java.util.List;
 import java.lang.String;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
