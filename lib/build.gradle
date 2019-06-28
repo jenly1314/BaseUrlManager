@@ -30,11 +30,15 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation deps.test.junit
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.espresso
-    //support
-    compileOnly deps.support.appcompat
+
+    api (deps.support.appcompat){
+        exclude module: 'support-annotations'
+    }
+
+    compileOnly deps.support.recyclerview
 
 }
