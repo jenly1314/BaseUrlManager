@@ -1,9 +1,8 @@
 <resources>
 
-    <string name="app_name">BaseUrlManager</string>
-
     <string name="base_url_title">BaseUrlManager</string>
 
     <string name="base_url_hint_example_url">例如：http://192.168.100.100:8888</string>
     <string name="base_url_add">添加</string>
+
 </resources>
