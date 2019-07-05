@@ -1,6 +1,7 @@
 package com.king.base.baseurlmanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,11 +26,11 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
 
     public static final String KEY_TITLE = "key_title";
 
+    public static final String KEY_URL_INFO = "key_url_info";
+
     private RecyclerView recyclerView;
 
     private EditText etUrl;
-
-    private Button btnAdd;
 
     private IBaseUrlManager mBaseUrlManager;
 
@@ -55,7 +55,6 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         etUrl = findViewById(R.id.etUrl);
-        btnAdd = findViewById(R.id.btnAdd);
 
         mBaseUrlManager = new BaseUrlManager(this);
 
@@ -78,7 +77,9 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
         UrlInfo urlInfo = mAdapter.getSelectedItem();
         if(urlInfo!=null){
             mBaseUrlManager.setUrlInfo(urlInfo);
-            setResult(RESULT_OK);
+            Intent intent = new Intent();
+            intent.putExtra(KEY_URL_INFO,urlInfo);
+            setResult(RESULT_OK,intent);
             onBackPressed();
         }
     }

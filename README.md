@@ -1,7 +1,7 @@
 # BaseUrlManager
 
 [![Download](https://img.shields.io/badge/download-App-blue.svg)](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk)
-[![Jitpack](https://jitpack.io/v/jenly1314/BaseUrlManager.svg)](https://jitpack.io/#jenly1314/BaseUrlManager)
+[![JitPack](https://jitpack.io/v/jenly1314/BaseUrlManager.svg)](https://jitpack.io/#jenly1314/BaseUrlManager)
 [![CI](https://travis-ci.org/jenly1314/BaseUrlManager.svg?branch=master)](https://travis-ci.org/jenly1314/BaseUrlManager)
 [![CircleCI](https://circleci.com/gh/jenly1314/BaseUrlManager.svg?style=svg)](https://circleci.com/gh/jenly1314/BaseUrlManager)
 [![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
@@ -26,22 +26,22 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 <dependency>
   <groupId>com.king.base</groupId>
   <artifactId>base-url-manager</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <type>pom</type>
 </dependency>
 ```
 ### Gradle:
 ```gradle
 //AndroidX 版本
-implementation 'com.king.base:base-url-manager:1.0.0-androidx'
+implementation 'com.king.base:base-url-manager:1.0.1-androidx'
 
 //Android 版本 
-implementation 'com.king.base:base-url-manager:1.0.0'
+implementation 'com.king.base:base-url-manager:1.0.1'
 ```
 
 ### Lvy:
 ```lvy
-<dependency org='com.king.base' name='base-url-manager' rev='1.0.0'>
+<dependency org='com.king.base' name='base-url-manager' rev='1.0.1'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
@@ -120,6 +120,10 @@ Step.4 当配置改变了baseUrl时，只需通过BaseUrlManager刷新下数据�
 更多使用详情，请查看[app](app)中的源码使用示例或直接查看[API帮助文档](https://jenly1314.github.io/projects/BaseUrlManager/doc/)
 
 ## 版本记录
+
+#### v1.0.1：2019-7-5   
+*  移除strings.xml资源中的app_name
+*  支持不依赖刷新数据，直接通过onActivityResult获取baseUrl信息
 
 #### v1.0.0：2019-6-11   [支持AndroidX版本](https://github.com/jenly1314/BaseUrlManager/tree/androidx)
 *  BaseUrlManager初始版本

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.king.base.baseurlmanager.BaseUrlManagerActivity;
+import com.king.base.baseurlmanager.bean.UrlInfo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +30,12 @@ public class MainActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case SET_BASE_URL_REQUEST_CODE:
-                    getApp().getBaseUrlManager().refreshData();
-                    mUrl = getApp().getBaseUrl();
+                    //方式1：通过刷新数据，获取baseUrl
+//                    getApp().getBaseUrlManager().refreshData();
+//                    mUrl = getApp().getBaseUrl();
+                    //方式2：通过data直接获取baseUrl
+                    UrlInfo urlInfo = data.getParcelableExtra(BaseUrlManagerActivity.KEY_URL_INFO);
+                    mUrl = urlInfo.getBaseUrl();
                     Toast.makeText(this,mUrl,Toast.LENGTH_SHORT).show();
                     break;
             }
