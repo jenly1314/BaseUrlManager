@@ -1,6 +1,7 @@
 # BaseUrlManager
 
 [![Download](https://img.shields.io/badge/download-App-blue.svg)](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk)
+[![JCenter](https://img.shields.io/badge/JCenter-1.1.0-46C018.svg)](https://bintray.com/beta/#/jenly/maven/base-url-manager)
 [![JitPack](https://jitpack.io/v/jenly1314/BaseUrlManager.svg)](https://jitpack.io/#jenly1314/BaseUrlManager)
 [![CI](https://travis-ci.org/jenly1314/BaseUrlManager.svg?branch=master)](https://travis-ci.org/jenly1314/BaseUrlManager)
 [![CircleCI](https://circleci.com/gh/jenly1314/BaseUrlManager.svg?style=svg)](https://circleci.com/gh/jenly1314/BaseUrlManager)
@@ -14,7 +15,7 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 
 > 妈妈再也不用担心因环境不同需要打多个包的问题，从此告别环境不同要写一堆配置的烦恼，真香。
 
-> 配合[**RetrofitHelper**](https://github.com/jenly1314/RetrofitHelper)动态改变BaseUrl一起使用更香。
+> 配合[ **RetrofitHelper** ](https://github.com/jenly1314/RetrofitHelper)动态改变BaseUrl一起使用更香。
 
 ## Gif 展示
 ![Image](GIF.gif)
@@ -38,10 +39,10 @@ implementation 'com.king.base:base-url-manager:1.1.0'
 
 //-----------------------v1.0.x以前的版本
 //AndroidX 版本
-implementation 'com.king.base:base-url-manager:1.1.0-androidx'
+implementation 'com.king.base:base-url-manager:1.0.1-androidx'
 
 //Android Support 版本
-implementation 'com.king.base:base-url-manager:1.1.0'
+implementation 'com.king.base:base-url-manager:1.0.1'
 ```
 
 ### Lvy:
