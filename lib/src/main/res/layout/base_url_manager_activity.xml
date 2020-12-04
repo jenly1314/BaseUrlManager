@@ -24,11 +24,12 @@
         android:textSize="@dimen/base_url_edit_url"
         android:textColor="@color/base_url_edit_url_text_color"
         android:singleLine="true"
+        android:inputType="textUri"
         android:hint="@string/base_url_hint_example_url"/>
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/base_url_button_height"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"

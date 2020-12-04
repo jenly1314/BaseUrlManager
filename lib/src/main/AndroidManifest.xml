@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.king.base.baseurlmanager"/>
+          package="com.king.base.baseurlmanager">
+
+    <application>
+        <provider
+            android:authorities="${applicationId}.xxprovider"
+            android:name="com.king.base.baseurlmanager.BaseUrlManagerProvider"
+            android:exported="false"/>
+    </application>
+</manifest>

@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.king.base.baseurlmanager.BaseUrlManagerActivity;
-import com.king.base.baseurlmanager.bean.UrlInfo;
+import com.king.base.baseurlmanager.BaseUrlManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mUrl = getApp().getBaseUrl();
+        mUrl = BaseUrlManager.getInstance().getBaseUrl();
     }
 
 
@@ -34,26 +33,30 @@ public class MainActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case SET_BASE_URL_REQUEST_CODE:
-                    //方式1：通过刷新数据，获取baseUrl
-//                    getApp().getBaseUrlManager().refreshData();
-//                    mUrl = getApp().getBaseUrl();
+                    //方式1：通过BaseUrlManager获取baseUrl
+                    mUrl = BaseUrlManager.getInstance().getBaseUrl();
                     //方式2：通过data直接获取baseUrl
-                    UrlInfo urlInfo = data.getParcelableExtra(BaseUrlManagerActivity.KEY_URL_INFO);
-                    mUrl = urlInfo.getBaseUrl();
+//                    UrlInfo urlInfo = BaseUrlManager.parseActivityResult(data);
+//                    mUrl = urlInfo.getBaseUrl();
                     Toast.makeText(this,mUrl,Toast.LENGTH_SHORT).show();
                     break;
             }
         }
     }
 
-    public App getApp(){
-        return (App)getApplication();
-    }
 
     private void toSetBaseUrl(){
-        Intent intent = new Intent(this, BaseUrlManagerActivity.class);
-//        intent.putExtra(BaseUrlManagerActivity.KEY_TITLE,"BaseUrl配置");
-        startActivityForResult(intent,SET_BASE_URL_REQUEST_CODE);
+
+        BaseUrlManager.getInstance().startBaseUrlManager(this,SET_BASE_URL_REQUEST_CODE);
+
+        //v1.0.x以前的写法
+//        Intent intent = new Intent(this, BaseUrlManagerActivity.class);
+////        intent.putExtra(BaseUrlManagerActivity.KEY_TITLE,"BaseUrl配置");
+//        //可设置正则校验，可选项
+////        intent.putExtra(BaseUrlManagerActivity.KEY_REGEX,BaseUrlManagerActivity.HTTP_URL_REGEX);
+//        startActivityForResult(intent,SET_BASE_URL_REQUEST_CODE);
+
+
     }
 
     public void onClick(View v){

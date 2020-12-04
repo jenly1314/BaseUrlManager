@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import com.king.base.baseurlmanager.adapter.UrlInfoAdapter;
 import com.king.base.baseurlmanager.bean.UrlInfo;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,10 +27,6 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class BaseUrlManagerActivity extends AppCompatActivity {
 
-    public static final String KEY_TITLE = "key_title";
-
-    public static final String KEY_URL_INFO = "key_url_info";
-
     private RecyclerView recyclerView;
 
     private EditText etUrl;
@@ -39,6 +37,8 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
 
     private List<UrlInfo> listData;
 
+    private String mRegex = BaseUrlManager.HTTP_URL_REGEX;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,16 +48,21 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
 
     private void initUI(){
 
-        String title = getIntent().getStringExtra(KEY_TITLE);
-        if(!TextUtils.isEmpty(title)){
-            TextView tvTitle = findViewById(R.id.tvTitle);
-            tvTitle.setText(title);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            String title = bundle.getString(BaseUrlManager.KEY_TITLE);
+            if(!TextUtils.isEmpty(title)){
+                TextView tvTitle = findViewById(R.id.tvTitle);
+                tvTitle.setText(title);
+            }
+            mRegex = bundle.getString(BaseUrlManager.KEY_REGEX);
         }
+
 
         recyclerView = findViewById(R.id.recyclerView);
         etUrl = findViewById(R.id.etUrl);
 
-        mBaseUrlManager = new BaseUrlManager(this);
+        mBaseUrlManager = BaseUrlManager.getInstance();
 
         listData = mBaseUrlManager.getUrlInfos();
 
@@ -78,8 +83,9 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
         UrlInfo urlInfo = mAdapter.getSelectedItem();
         if(urlInfo!=null){
             mBaseUrlManager.setUrlInfo(urlInfo);
+            mBaseUrlManager.refreshData();
             Intent intent = new Intent();
-            intent.putExtra(KEY_URL_INFO,urlInfo);
+            intent.putExtra(BaseUrlManager.KEY_URL_INFO,urlInfo);
             setResult(RESULT_OK,intent);
             onBackPressed();
         }
@@ -91,10 +97,17 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
      */
     private void addUrl(){
         if(TextUtils.isEmpty(etUrl.getText())){
+            etUrl.startAnimation(AnimationUtils.loadAnimation(this,R.anim.base_url_shake));
             return;
         }
 
         String url = etUrl.getText().toString().trim();
+
+        if((!TextUtils.isEmpty(mRegex)) && !Pattern.matches(mRegex,url)){
+            etUrl.startAnimation(AnimationUtils.loadAnimation(this,R.anim.base_url_shake));
+            return;
+        }
+
 
         UrlInfo urlInfo = new UrlInfo(url);
 
