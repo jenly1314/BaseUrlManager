@@ -20,12 +20,14 @@
         android:layout_centerVertical="true"/>
     <TextView
         android:id="@+id/tvUrl"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/base_url_item_url_color"
         android:textSize="@dimen/base_url_item_url"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/ivSelect"
+        android:layout_alignParentLeft="true"
         android:singleLine="true"
+        android:textIsSelectable="true"
         tools:text="http://192.168.100.100:8888/"/>
 </RelativeLayout>

@@ -27,9 +27,9 @@ dependencies {
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.espresso
 
-    implementation deps.support.appcompat
-    implementation deps.support.recyclerview
-    implementation deps.support.constraintlayout
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.recyclerview
+    implementation deps.androidx.constraintlayout
 
     implementation project(':lib')
 }

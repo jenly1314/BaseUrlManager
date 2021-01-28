@@ -1,7 +1,7 @@
 # BaseUrlManager
 
 [![Download](https://img.shields.io/badge/download-App-blue.svg)](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk)
-[![JCenter](https://img.shields.io/badge/JCenter-1.1.0-46C018.svg)](https://bintray.com/beta/#/jenly/maven/base-url-manager)
+[![JCenter](https://img.shields.io/badge/JCenter-1.1.1-46C018.svg)](https://bintray.com/beta/#/jenly/maven/base-url-manager)
 [![JitPack](https://jitpack.io/v/jenly1314/BaseUrlManager.svg)](https://jitpack.io/#jenly1314/BaseUrlManager)
 [![CI](https://travis-ci.org/jenly1314/BaseUrlManager.svg?branch=master)](https://travis-ci.org/jenly1314/BaseUrlManager)
 [![CircleCI](https://circleci.com/gh/jenly1314/BaseUrlManager.svg?style=svg)](https://circleci.com/gh/jenly1314/BaseUrlManager)
@@ -27,7 +27,7 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 <dependency>
   <groupId>com.king.base</groupId>
   <artifactId>base-url-manager</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <type>pom</type>
 </dependency>
 ```
@@ -35,7 +35,7 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 ```gradle
 
 //AndroidX 版本
-implementation 'com.king.base:base-url-manager:1.1.0'
+implementation 'com.king.base:base-url-manager:1.1.1'
 
 //-----------------------v1.0.x以前的版本
 //AndroidX 版本
@@ -47,7 +47,7 @@ implementation 'com.king.base:base-url-manager:1.0.1'
 
 ### Lvy:
 ```lvy
-<dependency org='com.king.base' name='base-url-manager' rev='1.1.0'>
+<dependency org='com.king.base' name='base-url-manager' rev='1.1.1'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
@@ -59,17 +59,6 @@ allprojects {
         maven { url 'https://dl.bintray.com/jenly/maven' }
     }
 }
-```
-
-## 引入的库：
-```gradle
-//AndroidX
-api 'androidx.appcompat:appcompat:1.0.0+'
-compileOnly 'androidx.recyclerview:recyclerview:1.0.0+'
-
-//Android
-api 'com.android.support:appcompat-v7:28.0.0'
-compileOnly 'com.android.support:recyclerview-v7:28.0.0'
 ```
 
 ## 示例
@@ -129,6 +118,9 @@ Step.4 当配置改变了baseUrl时，在Activity或Fragment的onActivityResult�
 更多使用详情，请查看[app](app)中的源码使用示例或直接查看[API帮助文档](https://jenly1314.github.io/projects/BaseUrlManager/doc/)
 
 ## 版本记录
+
+#### v1.1.1：2021-1-28
+*  新增支持长按复制相关功能
 
 #### v1.1.0：2020-12-4
 *  输入的url支持正则校验

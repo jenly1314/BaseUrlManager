@@ -35,10 +35,8 @@ dependencies {
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.espresso
 
-    api (deps.support.appcompat){
-        exclude module: 'support-annotations'
-    }
+    api deps.androidx.appcompat
 
-    compileOnly deps.support.recyclerview
+    compileOnly deps.androidx.recyclerview
 
 }
