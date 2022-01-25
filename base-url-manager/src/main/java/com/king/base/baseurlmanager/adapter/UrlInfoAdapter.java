@@ -27,30 +27,30 @@ public class UrlInfoAdapter extends RecyclerView.Adapter<UrlInfoAdapter.UrlViewH
 
     private UrlInfo urlInfo;
 
-    public UrlInfoAdapter(){
+    public UrlInfoAdapter() {
         listData = new ArrayList<>();
     }
 
-    public UrlInfoAdapter(List<UrlInfo> listData){
+    public UrlInfoAdapter(List<UrlInfo> listData) {
         this.listData = listData;
     }
 
     @NonNull
     @Override
     public UrlViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int type) {
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.base_url_rv_url_info_item,viewGroup,false);
+        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.base_url_rv_url_info_item, viewGroup, false);
         return new UrlViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull UrlViewHolder viewHolder, int position) {
-        convert(viewHolder,listData.get(position),position);
+        convert(viewHolder, listData.get(position), position);
     }
 
-    private void convert(UrlViewHolder holder, UrlInfo item, final int position){
-        holder.setText(R.id.tvUrl,item.getBaseUrl());
+    private void convert(UrlViewHolder holder, UrlInfo item, final int position) {
+        holder.setText(R.id.tvUrl, item.getBaseUrl());
 
-        holder.setSelected(R.id.ivSelect,item.equals(urlInfo));
+        holder.setSelected(R.id.ivSelect, item.equals(urlInfo));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,27 +62,27 @@ public class UrlInfoAdapter extends RecyclerView.Adapter<UrlInfoAdapter.UrlViewH
 
     @Override
     public int getItemCount() {
-        return listData!=null ? listData.size() : 0;
+        return listData != null ? listData.size() : 0;
     }
 
 
-    public void setSelected(int position){
-        if(position>=0 && position<getItemCount()){
+    public void setSelected(int position) {
+        if (position >= 0 && position < getItemCount()) {
             urlInfo = listData.get(position);
-        }else{
+        } else {
             urlInfo = null;
         }
         notifyDataSetChanged();
     }
 
-    public void noSelected(){
+    public void noSelected() {
         setSelected(-1);
     }
 
-    public void setSelected(@NonNull UrlInfo urlInfo){
-        if(listData!=null){
-            for (int i = 0;i < listData.size();i++){
-                if(urlInfo.equals(listData.get(i))){
+    public void setSelected(@NonNull UrlInfo urlInfo) {
+        if (listData != null) {
+            for (int i = 0; i < listData.size(); i++) {
+                if (urlInfo.equals(listData.get(i))) {
                     setSelected(i);
                     return;
                 }
@@ -91,42 +91,42 @@ public class UrlInfoAdapter extends RecyclerView.Adapter<UrlInfoAdapter.UrlViewH
         }
     }
 
-    public UrlInfo getSelectedItem(){
+    public UrlInfo getSelectedItem() {
         return urlInfo;
     }
 
 
-    public void replace(Collection<UrlInfo> urlInfos){
-        if(listData != urlInfos){
-            if(listData == null){
+    public void replace(Collection<UrlInfo> urlInfoList) {
+        if (listData != urlInfoList) {
+            if (listData == null) {
                 listData = new ArrayList<>();
-            }else{
+            } else {
                 listData.clear();
             }
 
-            if(urlInfos!=null){
-                listData.addAll(urlInfos);
+            if (urlInfoList != null) {
+                listData.addAll(urlInfoList);
             }
         }
 
         notifyDataSetChanged();
     }
 
-    public void add(Collection<UrlInfo> urlInfos){
-        if(listData != urlInfos){
-            if(listData == null){
+    public void add(Collection<UrlInfo> urlInfoList) {
+        if (listData != urlInfoList) {
+            if (listData == null) {
                 listData = new ArrayList<>();
             }
-            if(urlInfos!=null){
-                listData.addAll(urlInfos);
+            if (urlInfoList != null) {
+                listData.addAll(urlInfoList);
             }
         }
 
         notifyDataSetChanged();
     }
 
-    public void add(UrlInfo urlInfo){
-        if(listData == null){
+    public void add(UrlInfo urlInfo) {
+        if (listData == null) {
             listData = new ArrayList<>();
         }
 
@@ -135,7 +135,7 @@ public class UrlInfoAdapter extends RecyclerView.Adapter<UrlInfoAdapter.UrlViewH
         notifyDataSetChanged();
     }
 
-    protected static class UrlViewHolder extends RecyclerView.ViewHolder{
+    protected static class UrlViewHolder extends RecyclerView.ViewHolder {
 
         private SparseArray<View> views;
 
@@ -146,20 +146,20 @@ public class UrlInfoAdapter extends RecyclerView.Adapter<UrlInfoAdapter.UrlViewH
 
         public <T extends View> T getView(@IdRes int resId) {
             View view = views.get(resId);
-            if(view == null){
+            if (view == null) {
                 view = itemView.findViewById(resId);
-                views.put(resId,view);
+                views.put(resId, view);
             }
 
-            return (T)view;
+            return (T) view;
         }
 
-        public void setText(@IdRes int resId,CharSequence text){
+        public void setText(@IdRes int resId, CharSequence text) {
             TextView textView = getView(resId);
             textView.setText(text);
         }
 
-        public void setSelected(@IdRes int resId,boolean isSelected){
+        public void setSelected(@IdRes int resId, boolean isSelected) {
             getView(resId).setSelected(isSelected);
         }
 

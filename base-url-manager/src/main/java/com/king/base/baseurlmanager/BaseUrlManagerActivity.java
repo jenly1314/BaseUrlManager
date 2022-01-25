@@ -46,12 +46,12 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
         initUI();
     }
 
-    private void initUI(){
+    private void initUI() {
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null){
+        if (bundle != null) {
             String title = bundle.getString(BaseUrlManager.KEY_TITLE);
-            if(!TextUtils.isEmpty(title)){
+            if (!TextUtils.isEmpty(title)) {
                 TextView tvTitle = findViewById(R.id.tvTitle);
                 tvTitle.setText(title);
             }
@@ -64,13 +64,13 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
 
         mBaseUrlManager = BaseUrlManager.getInstance();
 
-        listData = mBaseUrlManager.getUrlInfos();
+        listData = mBaseUrlManager.getUrlInfoList();
 
         mAdapter = new UrlInfoAdapter(listData);
 
         mAdapter.setSelected(mBaseUrlManager.getUrlInfo());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         recyclerView.setAdapter(mAdapter);
 
@@ -79,14 +79,14 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
     /**
      * 保存选中的Url
      */
-    private void saveSelected(){
+    private void saveSelected() {
         UrlInfo urlInfo = mAdapter.getSelectedItem();
-        if(urlInfo!=null){
+        if (urlInfo != null) {
             mBaseUrlManager.setUrlInfo(urlInfo);
             mBaseUrlManager.refreshData();
             Intent intent = new Intent();
-            intent.putExtra(BaseUrlManager.KEY_URL_INFO,urlInfo);
-            setResult(RESULT_OK,intent);
+            intent.putExtra(BaseUrlManager.KEY_URL_INFO, urlInfo);
+            setResult(RESULT_OK, intent);
             onBackPressed();
         }
     }
@@ -95,16 +95,16 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
     /**
      * 添加Url
      */
-    private void addUrl(){
-        if(TextUtils.isEmpty(etUrl.getText())){
-            etUrl.startAnimation(AnimationUtils.loadAnimation(this,R.anim.base_url_shake));
+    private void addUrl() {
+        if (TextUtils.isEmpty(etUrl.getText())) {
+            etUrl.startAnimation(AnimationUtils.loadAnimation(this, R.anim.base_url_shake));
             return;
         }
 
         String url = etUrl.getText().toString().trim();
 
-        if((!TextUtils.isEmpty(mRegex)) && !Pattern.matches(mRegex,url)){
-            etUrl.startAnimation(AnimationUtils.loadAnimation(this,R.anim.base_url_shake));
+        if ((!TextUtils.isEmpty(mRegex)) && !Pattern.matches(mRegex, url)) {
+            etUrl.startAnimation(AnimationUtils.loadAnimation(this, R.anim.base_url_shake));
             return;
         }
 
@@ -119,24 +119,24 @@ public class BaseUrlManagerActivity extends AppCompatActivity {
 
         //隐藏输入法
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(etUrl.getWindowToken(),0);
+        imm.hideSoftInputFromWindow(etUrl.getWindowToken(), 0);
 
         //滑动到最后一个
         int count = mAdapter.getItemCount();
-        if(count>0){
-            recyclerView.smoothScrollToPosition(count-1);
+        if (count > 0) {
+            recyclerView.smoothScrollToPosition(count - 1);
         }
 
     }
 
 
-    public void onClick(View v){
+    public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.ivBack) {
             onBackPressed();
         } else if (id == R.id.ivSave) {
             saveSelected();
-        }else if(id == R.id.btnAdd){
+        } else if (id == R.id.btnAdd) {
             addUrl();
         }
     }

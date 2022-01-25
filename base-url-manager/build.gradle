@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: 'bintray.gradle'
+//apply from: 'bintray.gradle'
+apply plugin: "com.vanniktech.maven.publish"
 
 android {
 
@@ -30,13 +31,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation deps.test.junit
-    androidTestImplementation deps.test.runner
-    androidTestImplementation deps.test.espresso
+    testImplementation "junit:junit:$versions.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.androidExtJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espressoCore"
 
-    api deps.androidx.appcompat
-
-    compileOnly deps.androidx.recyclerview
+    compileOnly "androidx.appcompat:appcompat:$versions.appcompat"
+    api "androidx.recyclerview:recyclerview:$versions.recyclerview"
 
 }

@@ -9,23 +9,23 @@ import androidx.annotation.NonNull;
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
  */
-public class UrlInfo implements Parcelable,Comparable<UrlInfo> {
+public class UrlInfo implements Parcelable, Comparable<UrlInfo> {
 
     private String baseUrl;
 
     private long time;
 
     public UrlInfo(@NonNull String baseUrl) {
-        this(baseUrl,System.currentTimeMillis());
+        this(baseUrl, System.currentTimeMillis());
     }
 
-    public UrlInfo(@NonNull String baseUrl,long time) {
+    public UrlInfo(@NonNull String baseUrl, long time) {
         this.baseUrl = baseUrl;
         this.time = time;
     }
 
     public String getBaseUrl() {
-        if(TextUtils.isEmpty(baseUrl)){
+        if (TextUtils.isEmpty(baseUrl)) {
             return "";
         }
         return baseUrl;
@@ -69,10 +69,10 @@ public class UrlInfo implements Parcelable,Comparable<UrlInfo> {
 
     @Override
     public int compareTo(@NonNull UrlInfo o) {
-        if(time > o.time){
+        if (time > o.time) {
             return 1;
         }
-        if(time < o.time){
+        if (time < o.time) {
             return -1;
         }
         return 0;

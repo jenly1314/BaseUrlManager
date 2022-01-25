@@ -60,7 +60,7 @@ public interface IBaseUrlManager {
      * 获取UrlInfo集合
      * @return {@link List<UrlInfo>}
      */
-    List<UrlInfo> getUrlInfos();
+    List<UrlInfo> getUrlInfoList();
 
     /**
      * 获取url数

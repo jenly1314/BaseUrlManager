@@ -22,16 +22,29 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 
 ## 引入
 
-### Maven：
-```maven
-<dependency>
-  <groupId>com.king.base</groupId>
-  <artifactId>base-url-manager</artifactId>
-  <version>1.1.1</version>
-  <type>pom</type>
-</dependency>
-```
 ### Gradle:
+
+1. 在Project的 **build.gradle** 里面添加远程仓库
+
+```gradle
+allprojects {
+    repositories {
+        //...
+        mavenCentral()
+    }
+}
+```
+
+2. 在Module的 **build.gradle** 里面添加引入依赖项
+
+```gradle
+//AndroidX 版本
+implementation 'com.github.jenly1314:base-url-manager:1.2.0'
+
+```
+
+
+以前发布至JCenter的版本
 ```gradle
 
 //AndroidX 版本
@@ -45,21 +58,6 @@ implementation 'com.king.base:base-url-manager:1.0.1-androidx'
 implementation 'com.king.base:base-url-manager:1.0.1'
 ```
 
-### Lvy:
-```lvy
-<dependency org='com.king.base' name='base-url-manager' rev='1.1.1'>
-  <artifact name='$AID' ext='pom'></artifact>
-</dependency>
-```
-
-###### 如果Gradle出现implementation失败的情况，可以在Project的build.gradle里面添加如下：（也可以使用上面的GitPack来implementation）
-```gradle
-allprojects {
-    repositories {
-        maven { url 'https://dl.bintray.com/jenly/maven' }
-    }
-}
-```
 
 ## 示例
 
@@ -118,6 +116,9 @@ Step.4 当配置改变了baseUrl时，在Activity或Fragment的onActivityResult�
 更多使用详情，请查看[app](app)中的源码使用示例或直接查看[API帮助文档](https://jenly1314.github.io/projects/BaseUrlManager/doc/)
 
 ## 版本记录
+
+#### v1.2.0：2022-1-25 (从v1.2.0开始发布至 MavenCentral)
+*  优化细节
 
 #### v1.1.1：2021-1-28
 *  新增支持长按复制相关功能

@@ -30,7 +30,7 @@ public class BaseUrlManager implements IBaseUrlManager {
 
     private Context context;
 
-    private List<UrlInfo> urlInfos;
+    private List<UrlInfo> urlInfoList;
 
     private UrlInfo urlInfo;
 
@@ -38,74 +38,80 @@ public class BaseUrlManager implements IBaseUrlManager {
 
     private static BaseUrlManager INSTANCE;
 
-    public static BaseUrlManager getInstance(){
+    public static BaseUrlManager getInstance() {
         return INSTANCE;
     }
 
-    static void init(@NonNull Context context){
+    static void init(@NonNull Context context) {
         INSTANCE = new BaseUrlManager(context.getApplicationContext());
     }
 
-    private BaseUrlManager(@NonNull Context context){
+    private BaseUrlManager(@NonNull Context context) {
         this.context = context;
         refreshData();
     }
 
     /**
      * 跳转至 BaseUrl 配置管理
+     *
      * @param activity
      * @param requestCode
      */
-    public static void startBaseUrlManager(Activity activity, int requestCode){
-        startBaseUrlManager(activity,requestCode,null);
+    public static void startBaseUrlManager(Activity activity, int requestCode) {
+        startBaseUrlManager(activity, requestCode, null);
     }
 
     /**
      * 跳转至 BaseUrl 配置管理
+     *
      * @param activity
      * @param requestCode
      * @param bundle
      */
-    public static void startBaseUrlManager(Activity activity, int requestCode, Bundle bundle){
+    public static void startBaseUrlManager(Activity activity, int requestCode, Bundle bundle) {
         Intent intent = new Intent(activity, BaseUrlManagerActivity.class);
-        if(bundle !=null && bundle.size() > 0){
-            intent.putExtra(KEY_TITLE,"");
+        if (bundle != null && bundle.size() > 0) {
+            intent.putExtra(KEY_TITLE, "");
             intent.getExtras().putAll(bundle);
         }
-        activity.startActivityForResult(intent,requestCode);
+        activity.startActivityForResult(intent, requestCode);
     }
 
     /**
      * 跳转至 BaseUrl 配置管理
+     *
      * @param fragment
      * @param requestCode
      */
-    public static void startBaseUrlManager(Fragment fragment, int requestCode){
-        startBaseUrlManager(fragment,requestCode,null);
+    public static void startBaseUrlManager(Fragment fragment, int requestCode) {
+        startBaseUrlManager(fragment, requestCode, null);
     }
 
     /**
      * 跳转至 BaseUrl 配置管理
+     *
      * @param fragment
      * @param requestCode
      * @param bundle
      */
-    public static void startBaseUrlManager(Fragment fragment,int requestCode, Bundle bundle){
+    public static void startBaseUrlManager(Fragment fragment, int requestCode, Bundle bundle) {
         Intent intent = new Intent(fragment.getContext(), BaseUrlManagerActivity.class);
-        if(bundle !=null && bundle.size() > 0){
-            intent.putExtra(KEY_TITLE,"");
+        if (bundle != null && bundle.size() > 0) {
+            intent.putExtra(KEY_TITLE, "");
             intent.getExtras().putAll(bundle);
         }
-        fragment.startActivityForResult(intent,requestCode);
+        fragment.startActivityForResult(intent, requestCode);
     }
 
     /**
      * 解析 onActivityResult中的结果
+     *
      * @param data
      * @return
      */
-    public static @Nullable UrlInfo parseActivityResult(Intent data){
-        if(data != null){
+    @Nullable
+    public static UrlInfo parseActivityResult(Intent data) {
+        if (data != null) {
             return data.getParcelableExtra(BaseUrlManager.KEY_URL_INFO);
         }
         return null;
@@ -126,47 +132,47 @@ public class BaseUrlManager implements IBaseUrlManager {
     public void setUrlInfo(@NonNull UrlInfo urlInfo) {
         this.urlInfo = urlInfo;
         this.baseUrl = urlInfo.getBaseUrl();
-        if(urlInfos!=null){
-            if(urlInfos.contains(urlInfo)){
-                urlInfos.remove(urlInfo);
+        if (urlInfoList != null) {
+            if (urlInfoList.contains(urlInfo)) {
+                urlInfoList.remove(urlInfo);
             }
-            urlInfos.add(urlInfo);
-            BaseUrlUtil.put(context,urlInfo,true);
+            urlInfoList.add(urlInfo);
+            BaseUrlUtil.put(context, urlInfo, true);
         }
     }
 
     @Override
     public void addUrlInfo(@NonNull UrlInfo urlInfo) {
-        if(urlInfos!=null){
-            if(urlInfos.contains(urlInfo)){
-                urlInfos.remove(urlInfo);
+        if (urlInfoList != null) {
+            if (urlInfoList.contains(urlInfo)) {
+                urlInfoList.remove(urlInfo);
             }
-            urlInfos.add(urlInfo);
-            BaseUrlUtil.put(context,urlInfo);
+            urlInfoList.add(urlInfo);
+            BaseUrlUtil.put(context, urlInfo);
 
         }
     }
 
     @Override
     public void addUrlInfo(@NonNull Collection<UrlInfo> list) {
-        if(urlInfos!=null){
-            urlInfos.addAll(list);
-            BaseUrlUtil.put(context,list);
+        if (urlInfoList != null) {
+            urlInfoList.addAll(list);
+            BaseUrlUtil.put(context, list);
         }
     }
 
     @Override
     public void remove(@NonNull UrlInfo urlInfo) {
-        if(urlInfos!=null){
-            urlInfos.remove(urlInfo);
-            BaseUrlUtil.remove(context,urlInfo.getBaseUrl());
+        if (urlInfoList != null) {
+            urlInfoList.remove(urlInfo);
+            BaseUrlUtil.remove(context, urlInfo.getBaseUrl());
         }
     }
 
     @Override
     public void clear() {
-        if(urlInfos!=null){
-            urlInfos.clear();
+        if (urlInfoList != null) {
+            urlInfoList.clear();
         }
         urlInfo = null;
         baseUrl = null;
@@ -174,20 +180,20 @@ public class BaseUrlManager implements IBaseUrlManager {
     }
 
     @Override
-    public List<UrlInfo> getUrlInfos() {
-        return urlInfos;
+    public List<UrlInfo> getUrlInfoList() {
+        return urlInfoList;
     }
 
 
     @Override
     public int getCount() {
-        return urlInfos != null ? urlInfos.size() : 0;
+        return urlInfoList != null ? urlInfoList.size() : 0;
     }
 
     @Override
     public void refreshData() {
         baseUrl = BaseUrlUtil.getBaseUrl(context);
-        urlInfo = BaseUrlUtil.getUrlInfo(context,baseUrl);
-        urlInfos = BaseUrlUtil.getUrlInfos(context);
+        urlInfo = BaseUrlUtil.getUrlInfo(context, baseUrl);
+        urlInfoList = BaseUrlUtil.getUrlInfoList(context);
     }
 }

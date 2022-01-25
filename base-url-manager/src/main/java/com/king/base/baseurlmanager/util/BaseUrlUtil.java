@@ -177,7 +177,8 @@ public final class BaseUrlUtil {
      * @param context
      * @return
      */
-    public static List<UrlInfo> getUrlInfos(@NonNull Context context){
+    @NonNull
+    public static List<UrlInfo> getUrlInfoList(@NonNull Context context){
         SharedPreferences sp = getSharedPreferences(context);
         List<UrlInfo> list = new ArrayList<>();
         try{
