@@ -1,9 +1,10 @@
 # BaseUrlManager
 
 [![Download](https://img.shields.io/badge/download-App-blue.svg)](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk)
+[![MavenCentral](https://img.shields.io/maven-central/v/com.github.jenly1314/base-url-manager)](https://repo1.maven.org/maven2/com/github/jenly1314/base-url-manager)
 [![JCenter](https://img.shields.io/badge/JCenter-1.1.1-46C018.svg)](https://bintray.com/beta/#/jenly/maven/base-url-manager)
 [![JitPack](https://jitpack.io/v/jenly1314/BaseUrlManager.svg)](https://jitpack.io/#jenly1314/BaseUrlManager)
-[![CI](https://travis-ci.org/jenly1314/BaseUrlManager.svg?branch=master)](https://travis-ci.org/jenly1314/BaseUrlManager)
+[![CI](https://travis-ci.com/jenly1314/BaseUrlManager.svg?branch=master)](https://travis-ci.com/jenly1314/BaseUrlManager)
 [![CircleCI](https://circleci.com/gh/jenly1314/BaseUrlManager.svg?style=svg)](https://circleci.com/gh/jenly1314/BaseUrlManager)
 [![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php)
