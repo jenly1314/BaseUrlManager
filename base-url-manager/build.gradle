@@ -35,7 +35,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$versions.androidExtJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espressoCore"
 
-    compileOnly "androidx.appcompat:appcompat:$versions.appcompat"
+    api "androidx.appcompat:appcompat:$versions.appcompat"
     api "androidx.recyclerview:recyclerview:$versions.recyclerview"
 
 }
