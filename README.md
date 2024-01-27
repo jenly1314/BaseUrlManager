@@ -8,8 +8,6 @@
 [![CircleCI](https://circleci.com/gh/jenly1314/BaseUrlManager.svg?style=svg)](https://circleci.com/gh/jenly1314/BaseUrlManager)
 [![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php)
-[![Blog](https://img.shields.io/badge/blog-Jenly-9933CC.svg)](https://jenly1314.github.io)
-[![QQGroup](https://img.shields.io/badge/QQGroup-20867961-blue.svg)](http://shang.qq.com/wpa/qunwpa?idkey=8fcc6a2f88552ea44b1411582c94fd124f7bb3ec227e2a400dbbfaad3dc2f5ad)
 
 BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环境需要打包APK的场景，通过BaseUrlManager提供的BaseUrl动态设置入口，只需打一
 次包，即可轻松随意的切换不同的开发环境或测试环境。在打生产环境包时，关闭BaseUrl动态设置入口即可。
@@ -21,46 +19,28 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 ## Gif 展示
 ![Image](GIF.gif)
 
+> 你也可以直接下载 [演示App](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk) 体验效果
+
 ## 引入
 
 ### Gradle:
 
-1. 在Project的 **build.gradle** 里面添加远程仓库
+1. 在Project的 **build.gradle** 或 **setting.gradle** 中添加远程仓库
 
-```gradle
-allprojects {
+    ```gradle
     repositories {
         //...
         mavenCentral()
     }
-}
-```
+    ```
 
 2. 在Module的 **build.gradle** 里面添加引入依赖项
 
-```gradle
-//AndroidX 版本
-implementation 'com.github.jenly1314:base-url-manager:1.2.0'
-
-```
-
-
-以前发布至JCenter的版本
-```gradle
-
-//AndroidX 版本
-implementation 'com.king.base:base-url-manager:1.1.1'
-
-//-----------------------v1.0.x以前的版本
-//AndroidX 版本
-implementation 'com.king.base:base-url-manager:1.0.1-androidx'
-
-//Android Support 版本
-implementation 'com.king.base:base-url-manager:1.0.1'
-```
-
-
-## 示例
+    ```gradle
+    //AndroidX 版本
+    implementation 'com.github.jenly1314:base-url-manager:1.2.0'
+    ```
+## 使用
 
 集成步骤代码示例 （示例出自于[app](app)中）
 
@@ -114,7 +94,11 @@ Step.4 当配置改变了baseUrl时，在Activity或Fragment的onActivityResult�
 
 ```
 
-更多使用详情，请查看[app](app)中的源码使用示例或直接查看[API帮助文档](https://jenly1314.github.io/projects/BaseUrlManager/doc/)
+更多使用详情，请查看[app](app)中的源码使用示例或直接查看 [API帮助文档](https://jitpack.io/com/github/jenly1314/BaseUrlManager/latest/javadoc/)
+
+## 相关推荐
+
+#### [RetrofitHelper](https://github.com/jenly1314/RetrofitHelper) 一个为 Retrofit 提供便捷配置多个BaseUrl相关的扩展帮助类。
 
 ## 版本记录
 
@@ -136,30 +120,25 @@ Step.4 当配置改变了baseUrl时，在Activity或Fragment的onActivityResult�
 *  BaseUrlManager初始版本
 
 ## 赞赏
-如果您喜欢BaseUrlManager，或感觉BaseUrlManager帮助到了您，可以点右上角“Star”支持一下，您的支持就是我的动力，谢谢 :smiley:<p>
-您也可以扫描下面的二维码，请作者喝杯咖啡 :coffee:
-    <div>
-        <img src="https://jenly1314.github.io/image/pay/wxpay.png" width="280" heght="350">
-        <img src="https://jenly1314.github.io/image/pay/alipay.png" width="280" heght="350">
-        <img src="https://jenly1314.github.io/image/pay/qqpay.png" width="280" heght="350">
-        <img src="https://jenly1314.github.io/image/alipay_red_envelopes.jpg" width="233" heght="350">
-    </div>
+如果您喜欢BaseUrlManager，或感觉BaseUrlManager帮助到了您，可以点右上角“Star”支持一下，您的支持就是我的动力，谢谢 :smiley:
+<p>您也可以扫描下面的二维码，请作者喝杯咖啡 :coffee:
+
+<div>
+   <img src="https://jenly1314.github.io/image/page/rewardcode.png">
+</div>
 
 ## 关于我
-   Name: <a title="关于作者" href="https://about.me/jenly1314" target="_blank">Jenly</a>
 
-   Email: <a title="欢迎邮件与我交流" href="mailto:jenly1314@gmail.com" target="_blank">jenly1314#gmail.com</a> / <a title="给我发邮件" href="mailto:jenly1314@vip.qq.com" target="_blank">jenly1314#vip.qq.com</a>
+| 我的博客                                                                                | GitHub                                                                                  | Gitee                                                                                  | CSDN                                                                                 | 博客园                                                                            |
+|:------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| <a title="我的博客" href="https://jenly1314.github.io" target="_blank">Jenly's Blog</a> | <a title="GitHub开源项目" href="https://github.com/jenly1314" target="_blank">jenly1314</a> | <a title="Gitee开源项目" href="https://gitee.com/jenly1314" target="_blank">jenly1314</a>  | <a title="CSDN博客" href="http://blog.csdn.net/jenly121" target="_blank">jenly121</a>  | <a title="博客园" href="https://www.cnblogs.com/jenly" target="_blank">jenly</a>  |
 
-   CSDN: <a title="CSDN博客" href="http://blog.csdn.net/jenly121" target="_blank">jenly121</a>
+## 联系我
 
-   CNBlogs: <a title="博客园" href="https://www.cnblogs.com/jenly" target="_blank">jenly</a>
+| 微信公众号        | Gmail邮箱                                                                          | QQ邮箱                                                                              | QQ群                                                                                                                       | QQ群                                                                                                                       |
+|:-------------|:---------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| [Jenly666](http://weixin.qq.com/r/wzpWTuPEQL4-ract92-R) | <a title="给我发邮件" href="mailto:jenly1314@gmail.com" target="_blank">jenly1314</a> | <a title="给我发邮件" href="mailto:jenly1314@vip.qq.com" target="_blank">jenly1314</a> | <a title="点击加入QQ群" href="https://qm.qq.com/cgi-bin/qm/qr?k=6_RukjAhwjAdDHEk2G7nph-o8fBFFzZz" target="_blank">20867961</a> | <a title="点击加入QQ群" href="https://qm.qq.com/cgi-bin/qm/qr?k=Z9pobM8bzAW7tM_8xC31W8IcbIl0A-zT" target="_blank">64020761</a> |
 
-   GitHub: <a title="GitHub开源项目" href="https://github.com/jenly1314" target="_blank">jenly1314</a>
-
-   Gitee: <a title="Gitee开源项目" href="https://gitee.com/jenly1314" target="_blank">jenly1314</a>
-
-   加入QQ群: <a title="点击加入QQ群" href="http://shang.qq.com/wpa/qunwpa?idkey=8fcc6a2f88552ea44b1411582c94fd124f7bb3ec227e2a400dbbfaad3dc2f5ad" target="_blank">20867961</a>
-   <div>
-       <img src="https://jenly1314.github.io/image/jenly666.png">
-       <img src="https://jenly1314.github.io/image/qqgourp.png">
-   </div>
+<div>
+   <img src="https://jenly1314.github.io/image/page/footer.png">
+</div>
