@@ -1,13 +1,11 @@
 # BaseUrlManager
 
-[![Download](https://img.shields.io/badge/download-App-blue.svg)](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk)
-[![MavenCentral](https://img.shields.io/maven-central/v/com.github.jenly1314/base-url-manager)](https://repo1.maven.org/maven2/com/github/jenly1314/base-url-manager)
-[![JCenter](https://img.shields.io/badge/JCenter-1.1.1-46C018.svg)](https://bintray.com/beta/#/jenly/maven/base-url-manager)
-[![JitPack](https://jitpack.io/v/jenly1314/BaseUrlManager.svg)](https://jitpack.io/#jenly1314/BaseUrlManager)
-[![CI](https://app.travis-ci.com/jenly1314/BaseUrlManager.svg?branch=master)](https://app.travis-ci.com/github/jenly1314/BaseUrlManager)
-[![CircleCI](https://circleci.com/gh/jenly1314/BaseUrlManager.svg?style=svg)](https://circleci.com/gh/jenly1314/BaseUrlManager)
-[![API](https://img.shields.io/badge/API-16%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=16)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php)
+[![MavenCentral](https://img.shields.io/maven-central/v/com.github.jenly1314/base-url-manager?logo=sonatype)](https://repo1.maven.org/maven2/com/github/jenly1314/BaseUrlManager)
+[![JitPack](https://img.shields.io/jitpack/v/github/jenly1314/BaseUrlManager?logo=jitpack)](https://jitpack.io/#jenly1314/BaseUrlManager)
+[![CI](https://img.shields.io/github/actions/workflow/status/jenly1314/BaseUrlManager/gradle.yml?logo=github)](https://github.com/jenly1314/BaseUrlManager/actions/workflows/gradle.yml)
+[![Download](https://img.shields.io/badge/download-APK-brightgreen?logo=github)](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk)
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen?logo=android)](https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels)
+[![License](https://img.shields.io/github/license/jenly1314/BaseUrlManager?logo=open-source-initiative)](https://opensource.org/licenses/mit)
 
 BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环境需要打包APK的场景，通过BaseUrlManager提供的BaseUrl动态设置入口，只需打一
 次包，即可轻松随意的切换不同的开发环境或测试环境。在打生产环境包时，关闭BaseUrl动态设置入口即可。
@@ -16,7 +14,7 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
 
 > 配合[ **RetrofitHelper** ](https://github.com/jenly1314/RetrofitHelper)动态改变BaseUrl一起使用更香。
 
-## Gif 展示
+## 效果展示
 ![Image](GIF.gif)
 
 > 你也可以直接下载 [演示App](https://raw.githubusercontent.com/jenly1314/BaseUrlManager/master/app/release/app-release.apk) 体验效果
@@ -34,7 +32,7 @@ BaseUrlManager for Android 的设计初衷主要用于开发时，有多个环�
     }
     ```
 
-2. 在Module的 **build.gradle** 里面添加引入依赖项
+2. 在Module的 **build.gradle** 中添加依赖项
 
     ```gradle
     //AndroidX 版本
@@ -98,9 +96,16 @@ Step.4 当配置改变了baseUrl时，在Activity或Fragment的onActivityResult�
 
 ## 相关推荐
 
-#### [RetrofitHelper](https://github.com/jenly1314/RetrofitHelper) 一个为 Retrofit 提供便捷配置多个BaseUrl相关的扩展帮助类。
+- [RetrofitHelper](https://github.com/jenly1314/RetrofitHelper) 一个为 Retrofit 提供便捷配置多个BaseUrl相关的扩展帮助类。
+- [LogX](http://github.com/jenly1314/LogX) 一个轻量而强大的日志框架；好用不解释。
+- [KVCache](http://github.com/jenly1314/KVCache) 一个便于统一管理的键值缓存库；支持无缝切换缓存实现。
+- [AndroidKTX](http://github.com/AndroidKTX/AndroidKTX) 一个简化 Android 开发的 Kotlin 工具类集合。
+- [AndroidUtil](http://github.com/AndroidUtil/AndroidUtil) 一个整理了Android常用工具类集合，平时在开发的过程中可能会经常用到。
+- [AppUpdater](http://github.com/jenly1314/AppUpdater) 一个专注于App更新，一键傻瓜式集成App版本升级的轻量开源库。
+- [MVVMFrame](https://github.com/jenly1314/MVVMFrame) 一个基于Google官方推出的JetPack构建的MVVM快速开发框架。
+- [AppTemplate](https://github.com/jenly1314/AppTemplate) 一款基于 MVVMFrame 构建的App模板。
 
-## 版本记录
+## 版本日志
 
 #### v1.2.0：2022-1-25 (从v1.2.0开始发布至 MavenCentral)
 *  优化细节
@@ -119,26 +124,6 @@ Step.4 当配置改变了baseUrl时，在Activity或Fragment的onActivityResult�
 #### v1.0.0：2019-6-11   [支持AndroidX版本](https://github.com/jenly1314/BaseUrlManager/tree/androidx)
 *  BaseUrlManager初始版本
 
-## 赞赏
-如果您喜欢BaseUrlManager，或感觉BaseUrlManager帮助到了您，可以点右上角“Star”支持一下，您的支持就是我的动力，谢谢 :smiley:
-<p>您也可以扫描下面的二维码，请作者喝杯咖啡 :coffee:
+---
 
-<div>
-   <img src="https://jenly1314.github.io/image/page/rewardcode.png">
-</div>
-
-## 关于我
-
-| 我的博客                                                                                | GitHub                                                                                  | Gitee                                                                                  | CSDN                                                                                 | 博客园                                                                            |
-|:------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| <a title="我的博客" href="https://jenly1314.github.io" target="_blank">Jenly's Blog</a> | <a title="GitHub开源项目" href="https://github.com/jenly1314" target="_blank">jenly1314</a> | <a title="Gitee开源项目" href="https://gitee.com/jenly1314" target="_blank">jenly1314</a>  | <a title="CSDN博客" href="http://blog.csdn.net/jenly121" target="_blank">jenly121</a>  | <a title="博客园" href="https://www.cnblogs.com/jenly" target="_blank">jenly</a>  |
-
-## 联系我
-
-| 微信公众号        | Gmail邮箱                                                                          | QQ邮箱                                                                              | QQ群                                                                                                                       | QQ群                                                                                                                       |
-|:-------------|:---------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| [Jenly666](http://weixin.qq.com/r/wzpWTuPEQL4-ract92-R) | <a title="给我发邮件" href="mailto:jenly1314@gmail.com" target="_blank">jenly1314</a> | <a title="给我发邮件" href="mailto:jenly1314@vip.qq.com" target="_blank">jenly1314</a> | <a title="点击加入QQ群" href="https://qm.qq.com/cgi-bin/qm/qr?k=6_RukjAhwjAdDHEk2G7nph-o8fBFFzZz" target="_blank">20867961</a> | <a title="点击加入QQ群" href="https://qm.qq.com/cgi-bin/qm/qr?k=Z9pobM8bzAW7tM_8xC31W8IcbIl0A-zT" target="_blank">64020761</a> |
-
-<div>
-   <img src="https://jenly1314.github.io/image/page/footer.png">
-</div>
+![footer](https://jenly1314.github.io/page/footer.svg)
